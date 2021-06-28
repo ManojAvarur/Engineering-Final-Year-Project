@@ -1,10 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-const char* ssid = "Manoj";
-const char* password = "Hazelnut+-";
+const char* ssid = "";
+const char* password = "";
 WiFiClient client;
-
 
 void setup() {
   Serial.begin(9600);
@@ -13,6 +12,7 @@ void setup() {
 
 void loop() {
   Serial.print("");
+  
   insert_into_database();
   delay(5000);
   Serial.print("Insertion Successfull");
@@ -20,22 +20,17 @@ void loop() {
 
 void insert_into_database(){
   HTTPClient http;
-
-  http.begin(client, "http://iotproject.ezyro.com/iotest/connection.php");
-  
+  http.begin(client, "http://192.168.2.8/iot/connection.php?");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-  
-  int httpCode = http.POST("?sendval=" + String( random(1, 401) / 100.0 ) + 
-                           "&sendval2="+ String( random(1, 401) / 100.0 ) );
-                           
-  String payload = http.getString();                  
-  Serial.println(httpCode);   
-//  Serial.println(payload); 
-  
-  http.end();
-  Serial.print("Completed till here!!!");
-}
+  http.POST("sendval=" + String(random(1, 401) / 100.0) + 
+                           "&sendval2="+ String(random(1, 401) / 100.0) );
 
+  Serial.println(httpCode);  
+  Serial.println( http.getString() ); 
+
+  http.end();
+
+}
 
 void setup_wifi(){
   WiFi.begin(ssid, password);
