@@ -5,7 +5,6 @@ const char* ssid = "Manoj";
 const char* password = "Hazelnut+-";
 WiFiClient client;
 
-
 void setup() {
   Serial.begin(9600);
   setup_wifi();
@@ -21,16 +20,15 @@ void loop() {
 void insert_into_database(){
   HTTPClient http;
 
-  http.begin(client, "http://iotproject.ezyro.com/iotest/connection.php");
+  http.begin(client, "http://iotproject.ezyro.com/iotest/connection.php?val1=2323.434&val2=356.8889");
   
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
   
-  int httpCode = http.POST("?sendval=" + String( random(1, 401) / 100.0 ) + 
-                           "&sendval2="+ String( random(1, 401) / 100.0 ) );
+  int httpCode = http.POST("");
                            
   String payload = http.getString();                  
   Serial.println(httpCode);   
-//  Serial.println(payload); 
+  Serial.println(payload); 
   
   http.end();
   Serial.print("Completed till here!!!");
