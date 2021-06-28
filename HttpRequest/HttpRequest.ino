@@ -4,6 +4,7 @@
 const char* ssid = "Manoj";
 const char* password = "Hazelnut+-";
 
+
 void setup() {
   Serial.begin(9600);
   setup_wifi();
