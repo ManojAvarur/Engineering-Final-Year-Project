@@ -305,26 +305,26 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 24px;
 }
 
-#admin_home {
+/* #admin_home {
     width: 100%;
     height: 100vh;
     background: url("../img/admin_back.jpg");
     background-size: cover;
-}
+} */
 
-#admin_home .container {
+/* #admin_home .container {
     position: relative;
     padding-top: 74px;
     text-align: center;
-}
+} */
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
     #admin_home {
         background-attachment: fixed;
     }
-}
+} */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #admin_home {
         height: auto;
     }
@@ -332,27 +332,27 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 28px;
         line-height: 36px;
     }
-}
+} */
 
-#admin_home h1 {
+/* #admin_home h1 {
     font-size: 50px;
     font-weight: 700;
     color: #fff;
     font-family: "Poppins", sans-serif;
-}
+} */
 
-#admin_home h1 span {
+/* #admin_home h1 span {
     color: #689F38;
-}
+} */
 
-#temp_home {
+/* #temp_home {
     width: 100%;
     height: 45vh;
     background: url("../img/shop1.jpg");
     background-size: cover;
-}
+} */
 
-#temp_home .container {
+/* #temp_home .container {
     padding-top: 74px;
     text-align: center;
 }
@@ -429,7 +429,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #ad_home h1 span {
     color: #689F38;
-}
+} */
 
 section {
     padding: 60px 0;
