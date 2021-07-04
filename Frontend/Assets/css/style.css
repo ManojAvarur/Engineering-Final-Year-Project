@@ -308,23 +308,23 @@ h1, h2, h3, h4, h5, h6 {
 /* #admin_home {
     width: 100%;
     height: 100vh;
-    background: url("../img/admin_back.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../Images/vineyard.jpeg");
     background-size: cover;
-} */
+}
 
-/* #admin_home .container {
+#admin_home .container {
     position: relative;
     padding-top: 74px;
     text-align: center;
-} */
+}
 
-/* @media (min-width: 1024px) {
+@media (min-width: 1024px) {
     #admin_home {
         background-attachment: fixed;
     }
-} */
+}
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     #admin_home {
         height: auto;
     }
@@ -332,16 +332,16 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 28px;
         line-height: 36px;
     }
-} */
+}
 
-/* #admin_home h1 {
+#admin_home h1 {
     font-size: 50px;
     font-weight: 700;
     color: #fff;
     font-family: "Poppins", sans-serif;
-} */
+}
 
-/* #admin_home h1 span {
+#admin_home h1 span {
     color: #689F38;
 } */
 
@@ -797,6 +797,8 @@ section {
     color: #777;
 }
 
+/* ----------------------------------------------------------- */
+
 .forgot_pass {
     color: black;
     font-size: small;
@@ -814,4 +816,54 @@ section {
     pointer-events: none;        
     text-decoration: none;
     color: grey;
+}
+
+#information_main_home {
+    width: 100%;
+    height: 40vh;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ;
+    background-size: cover;
+}
+
+#information_main_home .container {
+    position: relative;
+    padding-top: 74px;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    #information_main_home {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 768px) {
+    #information_main_home {
+        height: auto;
+    }
+    #information_main_home h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    #information_main_home h2 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
+#information_main_home h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+#information_main_home h1 span, #information_main_home h2 span {
+    color: #689F38;
+}
+
+#information_main_home h2 {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 10px 0 0 0;
+    font-size: 24px;
 }
