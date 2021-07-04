@@ -820,8 +820,8 @@ section {
 
 #information_main_home {
     width: 100%;
-    height: 40vh;
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ;
+    height: 60vh;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../Images/water-1.jpeg") ;
     background-size: cover;
 }
 
@@ -856,6 +856,7 @@ section {
     font-weight: 700;
     color: #fff;
     font-family: "Poppins", sans-serif;
+    line-height: 130%;
 }
 
 #information_main_home h1 span, #information_main_home h2 span {
@@ -867,3 +868,76 @@ section {
     margin: 10px 0 0 0;
     font-size: 24px;
 }
+
+.sensor-datas .icon-box {
+    text-align: center;
+    border: 1px solid #ebebeb;
+    padding: 80px 20px;
+    transition: all ease-in-out 0.3s;
+    background: #fff;
+    width: 100%;
+}
+
+.sensor-datas .icon-box .icon {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    /* background: #689F38; */
+    color: #689F38;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    font-size: 600%;
+}
+
+.sensor-datas .icon-box h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.sensor-datas .icon-box h4 a {
+    color: #151515;
+    transition: ease-in-out 0.3s;
+}
+
+.sensor-datas .icon-box h4 a:hover {
+    color: #689F38;
+}
+
+.sensor-datas .icon-box p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.sensor-datas .icon-box:hover {
+    border-color: #fff;
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    display: none;
+  }
+  
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+.closebtn:hover {
+    color: black;
+  }
