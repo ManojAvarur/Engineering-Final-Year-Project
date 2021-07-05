@@ -976,9 +976,9 @@ section {
     margin-top: 20px;
   }
 
-.chart:last-child{
-    /* min-height: 0; */
-}
+/* .chart:last-child{
+    min-height: 0;
+} */
 .chart-row {
     margin:0 !important;
   }
