@@ -16,6 +16,7 @@
         <link href="Assets/vendor/venobox/venobox.css" rel="stylesheet">
         <link href="Assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
         <link href="Assets/vendor/aos/aos.css" rel="stylesheet">
+        <link href="Assets/vendor/toggle-switch/css/bootstrap4-toggle.min.css" rel="stylesheet">
         <link href="Assets/css/style.css" rel="stylesheet">
     </head>
     <body>
@@ -80,6 +81,13 @@
                 <div class="alert" id="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                     <strong>Error! : </strong> NodeMCU is under execution. Please try after some time!
+                </div> 
+
+                <div class="pump-box" id="pump">
+                    <p>
+                        <h4><strong>Pump Status : </strong> </h4>
+                        <input class="btn-success" type="checkbox" checked data-toggle="toggle" data-width="100" disabled>
+                    </p>
                 </div> 
 
                 <div class="row">
@@ -164,6 +172,7 @@
         <script src="Assets/vendor/counterup/counterup.min.js"></script>
         <script src="Assets/vendor/aos/aos.js"></script>
         <script src="Assets/js/main.js"></script>
+        <script src="Assets/vendor/toggle-switch/js/bootstrap4-toggle.min.js"></script>
         <script>
             function display_alert(){
                 document.getElementById("alert").style.display = "block";
