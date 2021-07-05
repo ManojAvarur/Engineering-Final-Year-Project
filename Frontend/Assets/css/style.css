@@ -1,9 +1,11 @@
 body {
     font-family: "Open Sans", sans-serif;
+
 }
 
 html {
     scroll-behavior: smooth;
+    border: 2px solid #689F38;
 }
 
 a {
@@ -956,3 +958,27 @@ section {
     color: black;
   }
 
+
+.graphs {
+    padding-top: 20px;
+    /* background-image: linear-gradient( rgb(246, 246, 246), rgb(246, 246, 246));  */
+    background-size: cover;
+    /* height: 90vh; */
+}
+
+/* .graphs .section-title{
+    margin-top: 4%;
+} */
+
+.chart {
+    width: 100%; 
+    min-height: 450px;
+    margin-top: 20px;
+  }
+
+.chart:last-child{
+    /* min-height: 0; */
+}
+.chart-row {
+    margin:0 !important;
+  }
