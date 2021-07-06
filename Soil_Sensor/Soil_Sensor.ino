@@ -3,8 +3,8 @@ int moistureValue;
 int percentage;
 
 int map_low = 1024;
-//int map_high = 40;
-int map_high = 397;
+int map_high = 40;
+// int map_high = 397;
 
 void setup()
 {
