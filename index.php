@@ -1,12 +1,23 @@
 <?php
+
     ini_set('display_errors', '1');
     include "_headers/functions.php";
     session_start();
 
-    if ( !isset( $_SESSION["token-id"] ) && !empty( $_SESSION["token-id"] ) ){
-        cookie_check();
+    $session_exist = false;
+    // echo "<script>alert('Hello');</script>";
+    // if ( !isset( $_SESSION["token-id"] ) ){
+        // echo "<script>alert('Hello');</script>";
+        // cookie_check();
+    // } 
+
+    if( isset( $_SESSION["token-id"] ) && !empty( $_SESSION["token-id"] ) ){
+        $session_exist = true;
+    } else {
+        cookie_check(); 
+            
     }
-    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +49,15 @@
                         <li><a href="#goals">Goals</a></li> 
                         <li><a href="#developer">Developer's</a></li>
                         <li><a href="#footer">About Us</a></li>  
+                        <?php 
+                            if( $session_exist ){
+                        ?>
+                                <li>|</li>  
+                                <li><a href="information.php">Information</a></li>  
+
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </nav>
                 <nav class="nav-bar d-lg-none d-sm-block">
@@ -49,12 +69,20 @@
                                 <li><a href="#goals">Goals</a></li> 
                                 <li><a href="#developer">Developer's</a></li>
                                 <li><a href="#footer">About Us</a></li>  
+                                <?php 
+                                    if( $session_exist ){
+                                ?>
+                                        <li><a href="information.php">Information</a></li>  
+
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </li>
                     </ul>
                 </nav>
                 <?php
-                    if( isset( $_SESSION["token-id"] ) && !empty( $_SESSION["token-id"] ) ){
+                    if( $session_exist ){
                         echo '<a href="logout.php" class="login-btn">Logout</a>';
                     } else {
                         echo '<a href="login.php" class="login-btn">Log In</a>';
@@ -208,7 +236,7 @@
         <script src="Assets/vendor/jquery/jquery.min.js"></script>
         <script src="Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="Assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-        <script src="Assets/vendor/php-email-form/validate.js"></script>
+        <!-- <script src="Assets/vendor/php-email-form/validate.js"></script> -->
         <script src="Assets/vendor/owl.carousel/owl.carousel.min.js"></script>
         <script src="Assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
         <script src="Assets/vendor/venobox/venobox.min.js"></script>

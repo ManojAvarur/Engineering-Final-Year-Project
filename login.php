@@ -8,7 +8,7 @@
     if ( isset( $_SESSION["token-id"] ) && !empty( $_SESSION["token-id"] ) ){
         header("location:index.php");
     } else {
-        cookie_check( $redirect = true );
+        cookie_check( 'index.php' ,$redirect = true );
     }
 
     if ( isset( $_POST["email-id"] ) && isset( $_POST["password"] ) && isset($_POST['submit']) && !empty( $_POST["email-id"] ) ) {
@@ -176,7 +176,7 @@
         <script src="Assets/vendor/jquery/jquery.min.js"></script>
         <script src="Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="Assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-        <script src="Assets/vendor/php-email-form/validate.js"></script>
+        <!-- <script src="Assets/vendor/php-email-form/validate.js"></script> -->
         <script src="Assets/vendor/owl.carousel/owl.carousel.min.js"></script>
         <script src="Assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
         <script src="Assets/vendor/venobox/venobox.min.js"></script>

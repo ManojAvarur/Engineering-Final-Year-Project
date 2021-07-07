@@ -1,4 +1,5 @@
 <?php
+    ini_set('display_errors', '1');
     include 'PHPMailer/PHPMailerAutoload.php';
     include "db_connection.php";
     $file = fopen( "_headers/credentials.txt", "r" );
@@ -10,7 +11,7 @@
         return array( $token_1, $token_2 );
     }
 
-    function cookie_check($location='index.php', $redirect = false){
+    function cookie_check($location='index.php', $redirect = true){
 
         if( isset( $_COOKIE["token_id_1"] ) &&  isset( $_COOKIE["token_id_2"] )  && !empty( $_COOKIE["token_id_1"] ) && !empty( $_COOKIE["token_id_2"] ) ){
     
@@ -32,11 +33,14 @@
                 $_SESSION["user_name"] = $result["user_full_name"];
                 if( $redirect ){
                     header('location:'.$location);
+                } else {
+                    return false;
                 }
+                // die(/);
             } 
     
         } else {
-            return 0;
+            return false;
         }
     
     }
