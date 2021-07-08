@@ -17,7 +17,7 @@
         cookie_check(); 
             
     }
-            
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -246,3 +246,5 @@
         <script src="Assets/js/main.js"></script>
     </body>
 </html>
+
+<!-- Hello world -->
