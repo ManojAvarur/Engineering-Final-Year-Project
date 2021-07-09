@@ -112,7 +112,7 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="icon-box">
                             <i class="icofont-thermometer icon"></i>
-                            <h4><a href="javascript:void(0);" onclick="display_alert()">Temprature</a></h4>
+                            <h4><a href="userrequest/request.php?value=sensor_data" onclick="display_alert()">Temprature</a></h4>
                             <h4>34&nbsp;&#8451</h4>
                             <p>It's a measure of how fast the atoms and molecules of a substance are moving.</p>
                         </div>
@@ -121,7 +121,7 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="icon-box">
                             <i class="icofont-ui-weather icon"></i>
-                            <h4><a href="javascript:void(0);" onclick="display_alert()">Humidity</a></h4>
+                            <h4><a href="userrequest/request.php?value=sensor_data" onclick="display_alert()">Humidity</a></h4>
                             <h4>20%</h4>
                             <p>Humidity is the amount of water vapor present in air.</p>
                         </div>
@@ -130,7 +130,7 @@
                     <div class="col-lg-4 col-md-12 d-flex align-items-stretch">
                         <div class="icon-box">
                             <i class='bx bx-water icon'></i>
-                            <h4><a href="javascript:void(0);" onclick="display_alert()">Moisture</a></h4>
+                            <h4><a href="userrequest/request.php?value=sensor_data" onclick="display_alert()">Moisture</a></h4>
                             <h4>30%</h4>
                             <p>Soil moisture is the amount of water in the active layer of the soil</p>
                         </div>

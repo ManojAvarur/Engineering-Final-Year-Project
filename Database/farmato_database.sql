@@ -7,7 +7,6 @@ CREATE TABLE user_login (
 )
 
 
-
 CREATE TABLE sensor_data (
   time_stamp datetime DEFAULT current_timestamp(),
   sensor_user_unique_id varchar(100) NOT NULL,
@@ -27,11 +26,18 @@ CREATE TABLE cookie_data (
     FOREIGN KEY (cookie_user_unique_id) REFERENCES user_login(user_unique_id)
 )
 
+
 CREATE TABLE user_nodemcu_com (
   unc_user_unique_id varchar(100) NOT NULL,
   pump_manual_overide_request BOOLEAN,
   sensor_data_request BOOLEAN,
-  db_freeze_flag BOOLEAN,
+  user_freeze_flag BOOLEAN,
+  nodemcu_freeze_flag BOOLEAN,
+  temperature float DEFAULT NULL,
+  humidity float DEFAULT NULL,
+  soil_moisture float DEFAULT NULL,
+  data_recieved_flag BOOLEAN,
   FOREIGN KEY (unc_user_unique_id) REFERENCES user_login(user_unique_id)
 )
+
 
