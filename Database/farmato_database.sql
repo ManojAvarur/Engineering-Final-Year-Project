@@ -27,3 +27,11 @@ CREATE TABLE cookie_data (
     FOREIGN KEY (cookie_user_unique_id) REFERENCES user_login(user_unique_id)
 )
 
+CREATE TABLE user_nodemcu_com (
+  unc_user_unique_id varchar(100) NOT NULL,
+  pump_manual_overide_request BOOLEAN,
+  sensor_data_request BOOLEAN,
+  db_freeze_flag BOOLEAN,
+  FOREIGN KEY (unc_user_unique_id) REFERENCES user_login(user_unique_id)
+)
+

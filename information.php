@@ -95,7 +95,14 @@
 
                 <div class="pump-box" id="pump">
                     <p>
-                        <h4><strong>Pump Status : </strong> </h4>
+                        <h4><strong>Pump Status : </strong><span id="pump-status">OFF</span></h4>
+                        <!-- <input class="btn-success" type="checkbox" checked data-toggle="toggle" data-width="100" > -->
+                    </p>
+                </div> 
+
+                <div class="pump-box" id="pump">
+                    <p>
+                        <h4><strong>Pump Manual Overide : </strong> </h4>
                         <input class="btn-success" type="checkbox" checked data-toggle="toggle" data-width="100" >
                     </p>
                 </div> 
@@ -205,6 +212,7 @@
         <script src="Assets/js/main.js"></script>
         <script src="Assets/vendor/toggle-switch/js/bootstrap4-toggle.min.js"></script>
         <script src="Assets/vendor/google-charts/loader.js"></script>
+        <script src="Assets/js/google-charts.js"></script>
         <script src="Assets/js/information.js"></script>
     </body>
 </html>
