@@ -14,11 +14,11 @@ void pump_water(){
       
     Serial.print( digitalRead(WL_HIGH) );
     Serial.println(" - Pump On");
-    digitalWrite(relay, LOW);
+    digitalWrite(RELAY_1, LOW);
     delay(1000);
   }
   
-  digitalWrite(relay, HIGH);
+  digitalWrite(RELAY_1, HIGH);
   Serial.println("Pump Off");
   pinMode(WL_HIGH, OUTPUT);
   digitalWrite(WL_HIGH, LOW);

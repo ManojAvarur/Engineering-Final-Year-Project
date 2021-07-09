@@ -17,6 +17,8 @@ int PERCENTAGE;
 int MAP_LOW = 1024;
 int MAP_HIGH = 40;
 
+    /* USING RELAY_2 */
+
 // ------------------ Water Level Sensor -------------
 #define WL_LOW D6 // LOW
 #define WL_HIGH D7 // HIGH
