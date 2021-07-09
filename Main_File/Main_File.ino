@@ -1,9 +1,18 @@
+// ------------------ Wi-Fi Settings ------------------
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h
+
+const char* ssid = "";
+const char* password = "";
+WiFiClient client;
+
+
 // ------------------ DHT11 Sensor ------------------
 #include "DHT.h"
 #define DHTTYPE DHT11
 #define dpin D0
 
-DHT dht(dpin,DHTTYPE);
+DHT dht(dpin, DHTTYPE);
 
 // ------------------ Relay Sensor ------------------
 #define RELAY_1 D1
@@ -11,8 +20,8 @@ DHT dht(dpin,DHTTYPE);
 
 // ------------------ Soil Sensor ------------------
 int SOIL_PIN = A0;
-int MOISTURE_VALUE;
-int PERCENTAGE;
+static int MOISTURE_VALUE;
+static int PERCENTAGE;
 
 int MAP_LOW = 1024;
 int MAP_HIGH = 40;
