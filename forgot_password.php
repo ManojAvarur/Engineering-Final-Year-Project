@@ -19,9 +19,10 @@
         if( mysqli_num_rows( $result ) > 0 ){
             $verfication_code = rand( 100000, 1000000 );
 
-            $message = "This is your verfication code for <strong>Reseting You're Password : ";
-            $message .= "<u>".$verfication_code."</u></strong>";
-            $subject = "Password Rest Code!";
+            $message = "Hello, <br>";
+            $message .= "This is your verification code for reseting your password : ";
+            $message .= "<strong><u>".$verfication_code."</u></strong>";
+            $subject = "Password Reset Code.";
 
             $_SESSION["authenticate"] = $verfication_code;
             $_SESSION["email-id"] = $_POST["email-id"];
@@ -63,8 +64,8 @@
 
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.html">FARM<span>ATO</span></a></h1>
-            <a href="login.html" class="login-btn">Login</a>
+            <h1 class="logo"><a href="index.php">FARM<span>ATO</span></a></h1>
+            <a href="login.php" class="login-btn">Login</a>
         </div>
     </header>
 
@@ -93,7 +94,7 @@
                                     </div>
 
                                     <button class='btn btn-lg btn-block text-uppercase' name='submit' style="background-color: #689F38; color: #fff;" type='submit'>Submit</button>
-                                    <!-- <p style='padding-top: 3%; text-align: right; margin-right: 2%;'>Didn't receive a mail? <span><a href='signup.html'>Try Again</a></span></p> -->
+                                    <!-- <p style='padding-top: 3%; text-align: right; margin-right: 2%;'>Didn't receive a mail? <span><a href='signup.php'>Try Again</a></span></p> -->
                                     <hr class='my-4'>
                                 </form>
 
@@ -129,8 +130,8 @@
                         <div class="col-lg-3 col-md-12 footer-links">
                             <h4>Contact Us</h4>
                             <ul>
-                                <li><i class="bx bx-wifi-1"></i> <a href="#">Email: test@example.com</a></li>
-                                <li><i class="bx bx-wifi-1"></i> <a href="#">Phone Number: +91 9123456780</a></li>
+                                <li><i class="bx bx-wifi-1"></i> <a href="mailto:farmato.dontreply@gmail.com">Via Email</a></li>
+                                <li><i class="bx bx-wifi-1"></i> <a href="tel:+919123456780">Via Phone Call</a></li>
                             </ul>
                         </div>
     

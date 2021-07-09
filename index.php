@@ -42,12 +42,12 @@
     <body>
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center justify-content-between">
-                <h1 class="logo"><a href="index.html">FARM<span>ATO</span></a></h1>
+                <h1 class="logo"><a href="index.php">FARM<span>ATO</span></a></h1>
                 <nav class="nav-bar d-none d-lg-block">
                     <ul>
                         <li><a href="#main_home">Home</a></li>
                         <li><a href="#goals">Goals</a></li> 
-                        <li><a href="#developer">Developer's</a></li>
+                        <li><a href="#developer">Developers</a></li>
                         <li><a href="#footer">About Us</a></li>  
                         <?php 
                             if( $session_exist ){
@@ -65,7 +65,7 @@
                         <li class="drop-down">
                             <a></a>
                             <ul>
-                                <li class="active"><a href="index.html">Home</a></li>
+                                <li class="active"><a href="index.php">Home</a></li>
                                 <li><a href="#goals">Goals</a></li> 
                                 <li><a href="#developer">Developer's</a></li>
                                 <li><a href="#footer">About Us</a></li>  
@@ -162,7 +162,7 @@
                     <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
                         <div class="icon-box">
                             <div class="icon"></div>
-                            <h4><a href="">Abhirup Kulkarni</a></h4>
+                            <h4><a href="https://github.com/Abhirupk">Abhirup Kulkarni</a></h4>
                             <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
                         </div>
                     </div>
@@ -178,16 +178,16 @@
                     <div class="col-lg-6 col-md-6 d-flex align-items-stretch" style="margin-top: 15px;">
                         <div class="icon-box">
                             <div class="icon"></div>
-                            <h4><a href="">Keerthana Ravikumar</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                            <h4><a href="https://github.com/Eloquent-rose">Keerthana Ravikumar</a></h4>
+                            <p>A chatter box who codes to a certain extent! Loves coding, dancing and scribling on walls.</p>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6 d-flex align-items-stretch" style="margin-top: 15px;">
                         <div class="icon-box">
                             <div class="icon"></div>
-                            <h4><a href="">Manoj A M</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                            <h4><a href="https://github.com/Manojavarur">Manoj A M</a></h4>
+                            <p>I'm a tech enthusiastic guy with no work experience but working my way up through life gaining more experience!</p>
                         </div>
                     </div>
 
@@ -221,8 +221,8 @@
                         <div class="col-lg-3 col-md-12 footer-links">
                             <h4>Contact Us</h4>
                             <ul>
-                                <li><i class="bx bx-wifi-1"></i> <a href="#">Email: test@example.com</a></li>
-                                <li><i class="bx bx-wifi-1"></i> <a href="#">Phone Number: +91 9123456780</a></li>
+                                <li><i class="bx bx-wifi-1"></i> <a href="mailto:farmato.dontreply@gmail.com">Via Email</a></li>
+                                <li><i class="bx bx-wifi-1"></i> <a href="tel:+919123456780">Via Phone Call</a></li>
                             </ul>
                         </div>
     

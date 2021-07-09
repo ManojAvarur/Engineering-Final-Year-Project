@@ -90,8 +90,8 @@
 
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center justify-content-between">
-                <h1 class="logo"><a href="index.html">FARM<span>ATO</span></a></h1>
-                <a href="index.html" class="login-btn">Home</a>
+                <h1 class="logo"><a href="index.php">FARM<span>ATO</span></a></h1>
+                <a href="index.php" class="login-btn">Home</a>
             </div>
         </header>
     
@@ -126,7 +126,7 @@
                                     <input type="checkbox" id="rememberMe" name="remember-me" style="margin-left: 3%;"><label for="rememberMe" style="padding-left: 2%; padding-bottom: 3%;">Remember me</label>
                                     <a href="forgot_password.php" class="forgot_pass">Forgot Password?</a>
                                     <button name="submit" class="btn btn-lg btn-block text-uppercase" style="background-color: #689F38; color: #fff;" type="submit">Log in</button>
-                                    <!-- <p style="padding-top: 3%; text-align: right; margin-right: 2%;">New User? <span><a href="signup.html">Sign Up</a></span></p> -->
+                                    <!-- <p style="padding-top: 3%; text-align: right; margin-right: 2%;">New User? <span><a href="signup.php">Sign Up</a></span></p> -->
                                     <hr class="my-4">
                                 </form>
                             </div>
@@ -161,8 +161,8 @@
                         <div class="col-lg-3 col-md-12 footer-links">
                             <h4>Contact Us</h4>
                             <ul>
-                                <li><i class="bx bx-wifi-1"></i> <a href="#">Email: test@example.com</a></li>
-                                <li><i class="bx bx-wifi-1"></i> <a href="#">Phone Number: +91 9123456780</a></li>
+                                <li><i class="bx bx-wifi-1"></i> <a href="mailto:farmato.dontreply@gmail.com">Via Email</a></li>
+                                <li><i class="bx bx-wifi-1"></i> <a href="tel:+919123456780">Via Phone Call</a></li>
                             </ul>
                         </div>
     

@@ -64,8 +64,8 @@
 
             <header id="header" class="fixed-top">
                 <div class="container d-flex align-items-center justify-content-between">
-                    <h1 class="logo"><a href="index.html">FARM<span>ATO</span></a></h1>
-                    <a href="login.html" class="login-btn">Login</a>
+                    <h1 class="logo"><a href="index.php">FARM<span>ATO</span></a></h1>
+                    <a href="login.php" class="login-btn">Login</a>
                 </div>
             </header>
 
@@ -79,12 +79,12 @@
                                         <h5 class='card-title text-center'>Enter New Password</h5>
                                         <form class='form-signin' action='#' method='POST' onSubmit='return checkPassword(this)'>
                                             <div class='form-label-group'>
-                                                <input type='password' id='inputPassword' name="password1" class='form-control' placeholder='Password' name='password' included >
+                                                <input type='password' id='inputPassword' name="password1" class='form-control' placeholder='Password' included >
                                                 <label for='inputPassword'>New Password</label>
                                             </div>
             
                                             <div class='form-label-group'>
-                                                <input type='password' id='inputPassword1' name="password2" class='form-control' placeholder='Password' name='conf_password' included >
+                                                <input type='password' id='inputPassword1' name="password2" class='form-control' placeholder='Password' included >
                                                 <label for='inputPassword1'>Confirm Password</label>
                                             </div>
             
@@ -124,8 +124,8 @@
                                 <div class="col-lg-3 col-md-12 footer-links">
                                     <h4>Contact Us</h4>
                                     <ul>
-                                        <li><i class="bx bx-wifi-1"></i> <a href="#">Email: test@example.com</a></li>
-                                        <li><i class="bx bx-wifi-1"></i> <a href="#">Phone Number: +91 9123456780</a></li>
+                                        <li><i class="bx bx-wifi-1"></i> <a href="mailto:farmato.dontreply@gmail.com">Via Email</a></li>
+                                        <li><i class="bx bx-wifi-1"></i> <a href="tel:+919123456780">Via Phone Call</a></li>
                                     </ul>
                                 </div>
             
@@ -150,10 +150,10 @@
 
             <script type = "text/javascript"> 
                 function checkPassword(form) {
-                    var password = form.password.value;
-                    var conf_password = form.conf_password.value;
+                    var password = form.password1.value;
+                    var conf_password = form.password2.value;
                     if (password != conf_password) {
-                        alert("PASSWORDS DO NOT MATCH: \nPlease try again...");
+                        alert("PASSWORDS DO NOT MATCH! \nPlease try again.");
                         document.getElementById('inputPassword1').value = ""; 
                         return false;
                     }    

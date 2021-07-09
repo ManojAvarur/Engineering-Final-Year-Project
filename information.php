@@ -32,7 +32,7 @@
     <body>
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center justify-content-between">
-                <h1 class="logo"><a href="index.html">FARM<span>ATO</span></a></h1>
+                <h1 class="logo"><a href="index.php">FARM<span>ATO</span></a></h1>
                 <nav class="nav-bar d-none d-lg-block">
                     <ul>
                         <li><a href="#information_main_home">Home</a></li>
@@ -180,8 +180,8 @@
                         <div class="col-lg-3 col-md-12 footer-links">
                             <h4>Contact Us</h4>
                             <ul>
-                                <li><i class="bx bx-wifi-1"></i> <a href="#">Email: test@example.com</a></li>
-                                <li><i class="bx bx-wifi-1"></i> <a href="#">Phone Number: +91 9123456780</a></li>
+                                <li><i class="bx bx-wifi-1"></i> <a href="mailto:farmato.dontreply@gmail.com">Via Email</a></li>
+                                <li><i class="bx bx-wifi-1"></i> <a href="tel:+919123456780">Via Phone Call</a></li>
                             </ul>
                         </div>
     
