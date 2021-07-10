@@ -1,4 +1,4 @@
-bool nodemcu_freeze_check(){
+int nodemcu_freeze_check(){
   int httpCode;
   String result;
   do{
@@ -20,5 +20,6 @@ bool nodemcu_freeze_check(){
   }while( httpCode != 200 );
 
   deserializeJson(Json_result_responce, result);
-  return Json_result_responce["result"].toInt();
+  result = Json_result_responce["result"].as<String>();
+  return result.toInt();
 }

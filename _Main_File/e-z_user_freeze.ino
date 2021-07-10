@@ -1,4 +1,4 @@
-bool user_freeze_flag(){
+int user_freeze_flag(){
     int httpCode;
     String result;
     do{
@@ -20,6 +20,7 @@ bool user_freeze_flag(){
     }while( httpCode != 200 );
     
     deserializeJson(Json_result_responce, result);
-    return Json_result_responce["result"].toInt();
+    result = Json_result_responce["result"].as<String>();
+    return result.toInt();
 
 }

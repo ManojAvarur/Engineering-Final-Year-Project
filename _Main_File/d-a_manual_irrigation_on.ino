@@ -7,8 +7,8 @@ void manual_irrigation_on(){
         result = fetch_json( "db_unc_fetch_requests.php", "uid="+USER_ID );
         deserializeJson(doc, result);
 
-    
-        if( !doc["irrigation_manual_overide_request"].toInt() ){
+        result = doc["irrigation_manual_overide_request"].as<String>();
+        if( !result.toInt() ){
             digitalWrite( RELAY_2, HIGH );
             Serial.println("Manual Overide Irrigation - Pump OFF");
             break;

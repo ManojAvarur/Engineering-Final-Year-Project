@@ -1,5 +1,5 @@
 // ------------------ Main Declaration --------------
-String URL = "http://192.168.2.7/handel_requests";
+String URL = "http://192.168.2.4/handel_requests";
 String USER_ID = "ccac34d923330a2968f12e163d5a2cd6";
 
 float TEMPERATURE_THRESHOLD_VALUE = 25.00;
@@ -56,16 +56,16 @@ int MAP_HIGH = 40;
 StaticJsonDocument<48> Json_result_responce;
 
 // ---------------- Function Declarations -------------
-bool nodemcu_freeze_check();
+int nodemcu_freeze_check();
 int user_request_execution();
 void manual_irrigation_on();
 void send_sensor_data();
-void unfreeze_nodemcu();
+// void unfreeze_nodemcu();
 void automatic_execution();
 void irrigate_soil();
 void update_database();
 void unfreeze_user();
-bool user_freeze_flag();
+int user_freeze_flag();
 void pump_water_to_tank( bool change_time );
 void send_json_sensor_data( String location, String JsonData );
 String fetch_json( String location, String variables );
