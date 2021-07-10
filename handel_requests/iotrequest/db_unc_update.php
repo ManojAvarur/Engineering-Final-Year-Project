@@ -1,6 +1,6 @@
 <?php
     ini_set('display_errors', '1');
-    include "../_headers/db_connection.php";
+    include "../../_headers/db_connection.php";
     global $connection;
 
     // get json output from nodemcu

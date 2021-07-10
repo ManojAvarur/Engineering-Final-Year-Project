@@ -1,7 +1,7 @@
 <?php
 
     ini_set('display_errors', '1');
-    include "../_headers/db_connection.php";
+    include "../../_headers/db_connection.php";
 
     // Get UID from nodemcu
     $uid = $_POST["uid"];

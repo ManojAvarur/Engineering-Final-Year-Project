@@ -1,7 +1,7 @@
 <?php
     ini_set('display_errors', '1');
     session_start();
-    include "../_headers/db_connection.php";
+    include "../../_headers/db_connection.php";
     global $connection;
 
     $uid = $_POST["uid"];

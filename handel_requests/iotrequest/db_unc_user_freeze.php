@@ -1,7 +1,7 @@
 <?php
 
     ini_set('display_errors', '1');
-    include "../_headers/db_connection.php";
+    include "../../_headers/db_connection.php";
     global $connection;
 
     $uid = $_POST["uid"];
@@ -45,5 +45,5 @@
             http_response_code(500);
         }
     } else {
-        http_response_code(500);
+       http_response_code(500);   
     }
