@@ -14,12 +14,12 @@ unsigned long TIME_TO_IRRIGATE = 10000;
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "Manoj";
+const char* password = "Hazelnut+-";
 WiFiClient client;
 
 
-// ------------------ DHT11 Sensor ------------------
+// ------------------ DHT11 Sensor Settings -----------
 #include "DHT.h"
 #define DHTTYPE DHT11
 #define dpin D0
@@ -28,11 +28,11 @@ DHT dht(dpin, DHTTYPE);
 float HUMIDITY;
 float TEMPERATURE;
 
-// ------------------ Relay Sensor ------------------
+// ------------------ Relay Sensor Settings -----------
 #define RELAY_1 D1
 #define RELAY_2 D2
 
-// ------------------ Soil Sensor ------------------
+// ------------------ Soil Sensor Settings ------------
 int SOIL_PIN = A0;
 static int MOISTURE_VALUE;
 static int PERCENTAGE;
@@ -42,14 +42,15 @@ int MAP_HIGH = 40;
 
     /* USING RELAY_2 */
 
-// ------------------ Water Level Sensor -------------
+// ------------------ Water Level Sensor Settings ------
 #define WL_LOW D6 // LOW
 #define WL_HIGH D7 // HIGH
 
     /* USING RELAY_1 */
 
-// ----------------- Other Libraies ------------------
+// ----------------- Json Libraies Settings ------------
 #include <ArduinoJson.h>
+StaticJsonDocument<48> Json_result_responce;
 
 // ---------------- Function Declarations -------------
 void setup_wifi();

@@ -1,14 +1,16 @@
 void manual_irrigation_on(){
     StaticJsonDocument<96> doc;
     String result;
+    
     while( true ){
 
-        result = fetch_json( "dbuncfetchrequests.php", "uid="+USER_ID );
+        result = fetch_json( "db_unc_fetch_requests.php", "uid="+USER_ID );
         deserializeJson(doc, result);
-        result = doc["irrigation_manual_overide_request"].as<String>();
-        if( result == "0" ){
+
+    
+        if( doc["irrigation_manual_overide_request"] ){
             digitalWrite( RELAY_2, HIGH );
-            Serial.println("Manual Overide Irrigation-Pump OFF");
+            Serial.println("Manual Overide Irrigation - Pump OFF");
             break;
         }
 
@@ -23,6 +25,8 @@ void manual_irrigation_on(){
         }
         
         digitalWrite( RELAY_2, LOW );
-        Serial.println("Manual Overide Irrigation-Pump ON");
+        Serial.println("Manual Overide Irrigation - Pump ON");
+
+        delay(1000);
     }
 }

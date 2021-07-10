@@ -13,6 +13,6 @@ void send_sensor_data(){
     doc["humidity"] = HUMIDITY;
 
     serializeJson(doc, JsonData);
-    send_json_data( "dbuncupdate.php", JsonData );
+    send_json_data( "db_unc_update.php", JsonData );
    
 }
