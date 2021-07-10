@@ -19,4 +19,6 @@ void setup() {
     digitalWrite(RELAY_1, HIGH);
     digitalWrite(WL_LOW, LOW);
     digitalWrite(WL_HIGH, LOW);
+
+    START_MILLIS = millis();
 }
