@@ -13,8 +13,8 @@ CREATE TABLE sensor_data (
   soil_moisture float DEFAULT NULL,
   temperature float DEFAULT NULL,
   humidity float DEFAULT NULL,
-  water_level int(11) DEFAULT NULL,
-  pump_status tinyint(1) DEFAULT NULL,
+  irrigation_on_off_status tinyint(1) DEFAULT NULL,
+  pump_on_off_status tinyint(1) DEFAULT NULL,
   FOREIGN KEY (sensor_user_unique_id) REFERENCES user_login(user_unique_id)
 )
 

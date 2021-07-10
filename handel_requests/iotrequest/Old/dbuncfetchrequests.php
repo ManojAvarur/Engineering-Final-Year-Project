@@ -7,7 +7,7 @@
     $uid = $_POST["uid"];
     global $connection;
 
-    $query = "SELECT * FROM user_nodemcu_com ";
+    $query = "SELECT irrigation_manual_overide_request, sensor_data_request FROM user_nodemcu_com ";
     $query .= "WHERE unc_user_unique_id = ".$uid.";";
 
     $result = mysqli_query( $connection, $query );
