@@ -29,7 +29,7 @@ CREATE TABLE cookie_data (
 
 CREATE TABLE user_nodemcu_com (
   unc_user_unique_id varchar(100) NOT NULL,
-  pump_manual_overide_request BOOLEAN,
+  irrigation_manual_overide_request BOOLEAN,
   sensor_data_request BOOLEAN,
   user_freeze_flag BOOLEAN,
   nodemcu_freeze_flag BOOLEAN,

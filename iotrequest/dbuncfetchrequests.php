@@ -1,12 +1,10 @@
 <?php
 
     ini_set('display_errors', '1');
-    session_start();
     include "../_headers/db_connection.php";
-    // include "../_headers/functions.php";
 
     // Get UID from nodemcu
-    $uid = 'ccac34d923330a2968f12e163d5a2cd6';
+    $uid = $_POST["uid"];
     global $connection;
 
     $query = "SELECT * FROM user_nodemcu_com ";
@@ -18,7 +16,7 @@
 
         $result_in_json = [
             // "unc_user_unique_id" => $row['unc_user_unique_id'],
-            "pump_manual_overide_request" => $row['pump_manual_overide_request'],
+            "irrigation_manual_overide_request" => $row['irrigation_manual_overide_request'],
             "sensor_data_request" => $row['sensor_data_request']
         ];
     
