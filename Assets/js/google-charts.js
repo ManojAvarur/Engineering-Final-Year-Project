@@ -3,18 +3,12 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-    ['Year', 'Sales', 'Expenses'],
-    ['2004',  1000,      400],
-    ['2005',  1170,      460],
-    ['2006',  660,       1120],
-    ['2007',  1030,      540]
-    ]);
+    var data = google.visualization.arrayToDataTable( line_graph_data() );
 
     var options = {
-    title: 'Company Performance',
-    curveType: 'function',
-    legend: { position: 'bottom' }
+        title: 'Humidity and Temparature',
+        curveType: 'function',
+        legend: { position: 'bottom' }
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -28,13 +22,7 @@ function drawChart() {
 google.load("visualization", "1", {packages:["corechart"]});
     google.setOnLoadCallback(drawChart1);
     function drawChart1() {
-    var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses'],
-        ['2004',  1000,      400],
-        ['2005',  1170,      460],
-        ['2006',  660,       1120],
-        ['2007',  1030,      540]
-    ]);
+    var data = google.visualization.arrayToDataTable( bar_graph_data() );
 
     var options = {
         title: 'Company Performance',
@@ -55,12 +43,7 @@ function drawTable() {
     data.addColumn('string', 'Name');
     data.addColumn('number', 'Salary');
     data.addColumn('boolean', 'Full Time Employee');
-    data.addRows([
-    ['Mike',  {v: 10000, f: '$10,000'}, true],
-    ['Jim',   {v:8000,   f: '$8,000'},  false],
-    ['Alice', {v: 12500, f: '$12,500'}, true],
-    ['Bob',   {v: 7000,  f: '$7,000'},  true]
-    ]);
+    data.addRows( table_data() );
 
     var table = new google.visualization.Table(document.getElementById('table_div'));
 
@@ -72,9 +55,3 @@ $(window).resize(function(){
     drawChart1();
     drawTable();
 });
-
-
-function display_alert(){
-    document.getElementById("alert").style.display = "block";
-    document.getElementById("sensor-datass").scrollIntoView();
-}

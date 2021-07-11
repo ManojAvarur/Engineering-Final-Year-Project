@@ -26,7 +26,8 @@
         <link href="Assets/vendor/venobox/venobox.css" rel="stylesheet">
         <link href="Assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
         <link href="Assets/vendor/aos/aos.css" rel="stylesheet">
-        <link href="Assets/vendor/toggle-switch/css/bootstrap4-toggle.min.css" rel="stylesheet">
+        <link href="Assets/vendor/toggle-switch/css/manual-toggle.css" rel="stylesheet">
+        <!-- <link href="Assets/vendor/toggle-switch/css/bootstrap4-toggle.min.css" rel="stylesheet"> -->
         <link href="Assets/css/style.css" rel="stylesheet">
     </head>
     <body>
@@ -39,6 +40,8 @@
                         <li><a href="#sensor-datass">Sensor Data</a></li> 
                         <li><a href="#graph">Graph</a></li>
                         <li><a href="#footer">About Us</a></li>  
+                        <li class="unfreeze" style="display: none;"><a>|</a></li>  
+                        <li class="unfreeze" style="display: none;"><a href="javascript:void(0);">Un-Freeze NodeMCU</a></li>  
                     </ul>
                 </nav>
                 <nav class="nav-bar d-lg-none d-sm-block">
@@ -46,14 +49,16 @@
                         <li class="drop-down">
                             <a></a>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Sensor Data</a></li> 
-                                <li><a href="#">Graph</a></li>
-                                <li><a href="#">About Us</a></li>    
+                                <li><a href="#information_main_home">Home</a></li>
+                                <li><a href="#sensor-datass">Sensor Data</a></li> 
+                                <li><a href="#graph">Graph</a></li>
+                                <li><a href="#footer">About Us</a></li>  
+                                <li class="unfreeze" style="display: none;"><a href="javascript:void(0);">Un-Freeze NodeMCU</a></li>    
                             </ul>
                         </li>
                     </ul>
                 </nav>
+                
                 <a href="logout.php" class="login-btn">Log Out</a>
             </div>
         </header>
@@ -90,30 +95,47 @@
              
                 <div class="alert" id="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                    <strong>Error! : </strong> NodeMCU is under execution. Please try after some time!
+                    <strong>Error! : </strong><span id="alert-msg"></span>
                 </div> 
 
                 <div class="pump-box" id="pump">
                     <p>
-                        <h4><strong>Pump Status : </strong><span id="pump-status">OFF</span></h4>
+                        <h4><strong>Irrigation Status : </strong><span id="pump-status">OFF</span></h4>
                         <!-- <input class="btn-success" type="checkbox" checked data-toggle="toggle" data-width="100" > -->
                     </p>
                 </div> 
 
+                <!-- <div class="pump-box" id="pump">
+                    <p>
+                        <h4 class="irrigation_manual_overide"><strong>Irrigation Manual Overide : </strong> </h4>
+                        <input class="btn-success irrigation_manual_overide" id="switch" onchange="irrigation_manual_overide()" type="checkbox" data-toggle="toggle" data-width="100" >
+                    </p>
+                </div>  -->
+
                 <div class="pump-box" id="pump">
                     <p>
-                        <h4><strong>Pump Manual Overide : </strong> </h4>
-                        <input class="btn-success" type="checkbox" checked data-toggle="toggle" data-width="100" >
-                    </p>
-                </div> 
+                        <h4><strong>Irrigation Manual Overide : </strong> </h4>
+                        
+                            <label class="switch">
+                                <input type="checkbox" id="togBtn" onclick="nodemcu_free_check(irrigation_manual_overide, true, 'irrigation')">
+                                <div class="slider round" id="togBtn-slider">
+                                    <!--ADDED HTML -->
+                                    <span class="on">ON</span>
+                                    <span class="off">OFF</span>
+                                    <!--END-->
+                                </div>
+                            </label>
+                        
+                        </p>
+                </div>
 
                 <div class="row">
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="icon-box">
                             <i class="icofont-thermometer icon"></i>
-                            <h4><a href="userrequest/request.php?value=sensor_data" onclick="display_alert()">Temprature</a></h4>
-                            <h4>34&nbsp;&#8451</h4>
+                            <h4><a class="temparature sensor_data_retrival" href="javascript:void(0);" onclick="nodemcu_free_check( request_sensor_data, true, 'request_sensor_data' )">Temprature</a></h4>
+                            <h4><a class="temparature sensor_data_retrival sensor_data_display" href="javascript:void(0);" onclick="nodemcu_free_check( request_sensor_data, true, 'request_sensor_data' )">34&nbsp;&#8451</a></h4>
                             <p>It's a measure of how fast the atoms and molecules of a substance are moving.</p>
                         </div>
                     </div>
@@ -121,8 +143,8 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="icon-box">
                             <i class="icofont-ui-weather icon"></i>
-                            <h4><a href="userrequest/request.php?value=sensor_data" onclick="display_alert()">Humidity</a></h4>
-                            <h4>20%</h4>
+                            <h4><a class="humidity sensor_data_retrival" href="javascript:void(0);" onclick="nodemcu_free_check( request_sensor_data, true, 'request_sensor_data' )">Humidity</a></h4>
+                            <h4><a class="humidity sensor_data_retrival sensor_data_display" href="javascript:void(0);" onclick="nodemcu_free_check( request_sensor_data, true, 'request_sensor_data' )">20%</a></h4>
                             <p>Humidity is the amount of water vapor present in air.</p>
                         </div>
                     </div>
@@ -130,8 +152,8 @@
                     <div class="col-lg-4 col-md-12 d-flex align-items-stretch">
                         <div class="icon-box">
                             <i class='bx bx-water icon'></i>
-                            <h4><a href="userrequest/request.php?value=sensor_data" onclick="display_alert()">Moisture</a></h4>
-                            <h4>30%</h4>
+                            <h4><a class="moisture sensor_data_retrival" href="javascript:void(0);" onclick="nodemcu_free_check( request_sensor_data, true, 'request_sensor_data' )">Moisture</a></h4>
+                            <h4><a class="moisture sensor_data_retrival sensor_data_display" href="javascript:void(0);" onclick="nodemcu_free_check( request_sensor_data, true, 'request_sensor_data' )">30%</a></h4>
                             <p>Soil moisture is the amount of water in the active layer of the soil</p>
                         </div>
                     </div>
@@ -210,10 +232,58 @@
         <script src="Assets/vendor/counterup/counterup.min.js"></script>
         <script src="Assets/vendor/aos/aos.js"></script>
         <script src="Assets/js/main.js"></script>
-        <script src="Assets/vendor/toggle-switch/js/bootstrap4-toggle.min.js"></script>
-        <script src="Assets/vendor/google-charts/loader.js"></script>
-        <script src="Assets/js/google-charts.js"></script>
+        <!-- <script src="Assets/vendor/toggle-switch/js/bootstrap4-toggle.min.js"></script> -->
+        <script src="Assets/vendor/google-charts/loader.js"></script>  
         <script src="Assets/js/information.js"></script>
+        <!-- <script type="text/javascript">
+            document.querySelector("#switch").addEventListener("click", function(event) {
+                event.preventDefault();
+            }, false);
+        </script> -->
+        <script>
+            function line_graph_data(){
+               return [
+                    ['Day', 'Humidity', 'Temparature'],
+                    ['Monday',  1000,      400],
+                    ['Tuesday',  1170,      460],
+                    ['Wednesday',  660,       1120],
+                    ['Thursday',  1030,      540],
+                    ['Friday',  340,       780],
+                    ['Saturday',  600,       1000],
+                    ['Sunday',  1430,       530],
+                ];
+                
+            }
+             
+            function bar_graph_data(){
+                return [
+                    ['Year', 'Sales', 'Expenses'],
+                    ['2004',  1000,      400],
+                    ['2005',  1170,      460],
+                    ['2006',  660,       1120],
+                    ['2007',  1030,      540]
+                ];
+            }
+
+            function table_data(){
+                return [
+                    ['Mike',  {v: 1, f: '$10,00'}, true],
+                    ['Jim',   {v: 1,   f: '$8,000'},  false],
+                    ['Alice', {v: 1, f: '$12,500'}, true],
+                    ['Bob',   {v: 7,  f: '$7,000'},  true]
+                ];
+                // return [
+                //     ['Mike',  {v: 10000, f: '$10,000'}, true],
+                //     ['Jim',   {v:8000,   f: '$8,000'},  false],
+                //     ['Alice', {v: 12500, f: '$12,500'}, true],
+                //     ['Bob',   {v: 7000,  f: '$7,000'},  true]
+                // ];
+            }
+            function user_id(){
+                return "<?= $_SESSION["token-id"] ?>";
+            }
+        </script>
+        <script src="Assets/js/google-charts.js"></script>
     </body>
 </html>
 

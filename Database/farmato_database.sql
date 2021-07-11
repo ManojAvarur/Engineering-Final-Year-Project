@@ -36,8 +36,10 @@ CREATE TABLE user_nodemcu_com (
   temperature float DEFAULT NULL,
   humidity float DEFAULT NULL,
   soil_moisture float DEFAULT NULL,
-  data_recieved_flag BOOLEAN,
+  new_data_recieved_flag BOOLEAN,
   FOREIGN KEY (unc_user_unique_id) REFERENCES user_login(user_unique_id)
 )
+
+INSERT INTO user_nodemcu_com  VALUES ('ccac34d923330a2968f12e163d5a2cd6', 0, 0, 0, 0, 0, 0, 0, 0);
 
 
