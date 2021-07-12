@@ -25,7 +25,7 @@ google.load("visualization", "1", {packages:["corechart"]});
     var data = google.visualization.arrayToDataTable( bar_graph_data() );
 
     var options = {
-        title: 'Company Performance',
+        title: 'Total Useage of Pumps',
         hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
     };
 
@@ -35,23 +35,23 @@ google.load("visualization", "1", {packages:["corechart"]});
 
 //    ----------- Table Representation -----------------------------
 
-google.charts.load('current', {'packages':['table']});
-google.charts.setOnLoadCallback(drawTable);
+// google.charts.load('current', {'packages':['table']});
+// google.charts.setOnLoadCallback(drawTable);
 
-function drawTable() {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Name');
-    data.addColumn('number', 'Salary');
-    data.addColumn('boolean', 'Full Time Employee');
-    data.addRows( table_data() );
+// function drawTable() {
+//     var data = new google.visualization.DataTable();
+//     data.addColumn('string', 'Name');
+//     data.addColumn('number', 'Salary');
+//     data.addColumn('boolean', 'Full Time Employee');
+//     data.addRows( table_data() );
 
-    var table = new google.visualization.Table(document.getElementById('table_div'));
+//     var table = new google.visualization.Table(document.getElementById('table_div'));
 
-    table.draw(data, {showRowNumber: true, width: '100%', height: '100%', title: 'Pump On Count',});
-}
+//     table.draw(data, {showRowNumber: true, width: '100%', height: '100%', title: 'Pump On Count',});
+// }
 
 $(window).resize(function(){
     drawChart();
     drawChart1();
-    drawTable();
+    // drawTable();
 });

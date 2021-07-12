@@ -3,8 +3,38 @@
     session_start();
     include "_headers/db_connection.php";
     include "_headers/functions.php";
+    global $connection;
 
     if( isset( $_SESSION["token-id"] ) && isset( $_SESSION["user_name"] ) && !empty( $_SESSION["token-id"] ) && !empty( $_SESSION["user_name"] ) ){
+
+        $pump_on_off_count = [];
+        for( $i = 0; $i <= 7; $i++ ){
+            $query = "SELECT COUNT(*), time_stamp  FROM sensor_data WHERE sensor_user_unique_id = '".$_SESSION["token-id"]."' AND pump_on_off_status = True and time_stamp >= DATE_ADD(CURDATE(),INTERVAL -($i+1) DAY) and time_stamp < DATE_ADD(CURDATE(),INTERVAL -($i) DAY)" ;
+            $result = mysqli_query( $connection, $query);
+            array_push( $pump_on_off_count, mysqli_fetch_array( $result ) );
+        }
+
+        $irrigation_on_off_count = [];
+        for( $i = 0; $i <= 7; $i++ ){
+            $query = "SELECT COUNT(*), time_stamp  FROM sensor_data WHERE sensor_user_unique_id = '".$_SESSION["token-id"]."' AND irrigation_on_off_status  = True and time_stamp >= DATE_ADD(CURDATE(),INTERVAL -($i+1) DAY) and time_stamp < DATE_ADD(CURDATE(),INTERVAL -($i) DAY)" ;
+            $result = mysqli_query( $connection, $query);
+            array_push( $irrigation_on_off_count, mysqli_fetch_array( $result ) );
+        }
+        
+        $humidity_and_temparature = [];
+        for( $i = 0; $i <= 7; $i++ ){
+            $query = "SELECT AVG(humidity), AVG(temperature), time_stamp  FROM sensor_data WHERE sensor_user_unique_id = '".$_SESSION["token-id"]."' AND time_stamp >= DATE_ADD(CURDATE(),INTERVAL -($i+1) DAY) and time_stamp < DATE_ADD(CURDATE(),INTERVAL -($i) DAY)";
+            $result = mysqli_query( $connection, $query);
+            array_push( $humidity_and_temparature, mysqli_fetch_array( $result ) );
+        }
+
+        
+        // $query = "SELECT * FROM sensor_data WHERE sensor_user_unique_id = '".$_SESSION["token-id"]."' ORDER BY time_stamp DESC LIMIT ;";
+        // $table_data  = mysqli_fetch_array( mysqli_query( $connection, $query) );
+
+        // echo json_encode($table_data);
+        // die("<br>".$query);
+        
 
 ?>
 
@@ -177,9 +207,9 @@
                     <div class="col-lg-12 ">
                         <div id="chart_div1" class="chart"></div>
                     </div>
-                    <div class="col-lg-12 ">
+                    <!-- <div class="col-lg-12 ">
                         <div id="table_div" class="chart" style="height: 0;"></div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -242,27 +272,72 @@
         </script> -->
         <script>
             function line_graph_data(){
-               return [
-                    ['Day', 'Humidity', 'Temparature'],
-                    ['Monday',  1000,      400],
-                    ['Tuesday',  1170,      460],
-                    ['Wednesday',  660,       1120],
-                    ['Thursday',  1030,      540],
-                    ['Friday',  340,       780],
-                    ['Saturday',  600,       1000],
-                    ['Sunday',  1430,       530],
+                var data =  <?= json_encode( $humidity_and_temparature ) ?> ;
+                var formated_data = [
+                    ['Day', 'Humidity', 'Temparature']
                 ];
+
+                // round( floatval( ) ) parseFloat() 
+                for(var i=0; i < data.length; i++ ){
+                    var date = new Date(data[i]["time_stamp"]);
+                    var day = date.getDate();
+                    var month = date.getMonth();
+                    var year = date.getFullYear();
+                    formated_data.push(  
+                        [
+                            day+"-"+month+"-"+year,
+                            Math.round( parseFloat( data[i]["AVG(humidity)"] ), 2 ),
+                            Math.round( parseFloat( data[i]["AVG(temperature)"] ), 2 )
+                        ]
+                    );
+                }
+
+                // for(var i=0; i < formated_data.length; i++ ){
+                //     console.log( formated_data[i] );
+                // }
+
+                return formated_data;
+                // return [
+                //     ['Date', 'Humidity', 'Temparature'],
+                //     ['Monday',  1000,      400],
+                //     ['Tuesday',  1170,      460],
+                //     ['Wednesday',  660,       1120],
+                //     ['Thursday',  1030,      540],
+                //     ['Friday',  340,       780],
+                //     ['Saturday',  600,       1000],
+                //     ['Sunday',  1430,       530],
+                // ];
                 
             }
              
             function bar_graph_data(){
-                return [
-                    ['Year', 'Sales', 'Expenses'],
-                    ['2004',  1000,      400],
-                    ['2005',  1170,      460],
-                    ['2006',  660,       1120],
-                    ['2007',  1030,      540]
+                var pump_data =  <?= json_encode( $pump_on_off_count ) ?>;
+                var irrigation_data =  <?= json_encode( $irrigation_on_off_count ) ?>;
+                var formated_data = [
+                    ['Date', 'Pump', 'Irrigation']
                 ];
+                for(var i=0; i < pump_data.length; i++ ){
+                    var date = new Date(pump_data[i]["time_stamp"]);
+                    var day = date.getDate();
+                    var month = date.getMonth();
+                    var year = date.getFullYear();
+                    formated_data.push(  
+                        [
+                            day+"-"+month+"-"+year,
+                            parseInt(pump_data[i]["COUNT(*)"]),
+                            parseInt(irrigation_data[i]["COUNT(*)"])
+                        ]
+                    );
+                }
+                return formated_data;
+
+                // return [
+                //     ['Date', 'Pump', 'Irrigation'],
+                //     ['2004',  1000,      400],
+                //     ['2005',  1170,      460],
+                //     ['2006',  660,       1120],
+                //     ['2007',  1030,      540]
+                // ];
             }
 
             function table_data(){
