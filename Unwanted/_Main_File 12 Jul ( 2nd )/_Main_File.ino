@@ -1,5 +1,5 @@
 // ------------------ Main Declaration --------------
-String URL = "http://192.168.2.2/farmato/handel_requests";
+String URL = "http://192.168.2.4/handel_requests";
 String USER_ID = "ccac34d923330a2968f12e163d5a2cd6";
 
 float TEMPERATURE_THRESHOLD_VALUE = 25.00;
