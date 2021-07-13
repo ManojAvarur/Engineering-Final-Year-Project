@@ -12,6 +12,12 @@ void send_sensor_data(){
     doc["temperature"] = TEMPERATURE;
     doc["humidity"] = HUMIDITY;
 
+    if( DEBUG_CODE ){
+            Serial.println("Inside send_sensor_data and USER_ID, PERCENTAGE, TEMPERATURE, HUMIDITY  is set to : "+ USER_ID + " "+ String( PERCENTAGE ) + " "+ String( TEMPERATURE ) + " "+ String( HUMIDITY ) );
+            delay(DEBUH_DELAY_TIME);
+        }
+
+
     serializeJson(doc, JsonData);
     send_json_sensor_data( "db_unc_update.php", JsonData );
    

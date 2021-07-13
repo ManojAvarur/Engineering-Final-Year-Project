@@ -7,6 +7,8 @@ void setup()
 {
  Serial.begin(9600);
  dht.begin();
+// pinMode(D2, OUTPUT);
+// digitalWrite(D2,HIGH);
 }
 
 void loop() 

@@ -1,6 +1,9 @@
 // ------------------ Main Declaration --------------
-String URL = "http://192.168.2.2/farmato/handel_requests";
+String URL = "http://192.168.43.225/website/farmato/handel_requests";
 String USER_ID = "ccac34d923330a2968f12e163d5a2cd6";
+
+int DEBUG_CODE = 0;
+int DEBUH_DELAY_TIME = 10000;
 
 float TEMPERATURE_THRESHOLD_VALUE = 25.00;
 float HUMIDITY_THRESHOLD_VALUE = 48.00;
@@ -17,15 +20,15 @@ int PUMP_ON_OFF_STATUS;
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-const char* ssid = "Manoj";
-const char* password = "Hazelnut+-";
+const char* ssid = "";
+const char* password = "";
 WiFiClient client;
 
 
 // ------------------ DHT11 Sensor Settings -----------
 #include "DHT.h"
 #define DHTTYPE DHT11
-#define dpin D0
+#define dpin D5
 
 DHT dht(dpin, DHTTYPE);
 float HUMIDITY;

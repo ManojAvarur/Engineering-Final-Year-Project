@@ -13,12 +13,16 @@ void automatic_execution(){
     Serial.print("Moisture percentage: ");
     Serial.print(PERCENTAGE);
     Serial.println("%");
+
+    Serial.println("Inside Automatic Execution");
     
     if( user_freeze_flag() ){
-        if(PERCENTAGE <= PERCENTAGE_THRESHOLD_VALUE || HUMIDITY >= HUMIDITY_THRESHOLD_VALUE || TEMPERATURE >= TEMPERATURE_THRESHOLD_VALUE){
+        if(HUMIDITY >= HUMIDITY_THRESHOLD_VALUE || TEMPERATURE >= TEMPERATURE_THRESHOLD_VALUE){
+          if( PERCENTAGE <= PERCENTAGE_THRESHOLD_VALUE ){
             IRRIGARTION_ON_OFF_STATUS = 1;
             PUMP_ON_OFF_STATUS = 0;
             irrigate_soil();
+          }
         }
         update_database();
 

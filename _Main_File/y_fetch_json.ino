@@ -7,6 +7,13 @@ String fetch_json( String location, String variables ){
         http.addHeader("Content-Type", "application/x-www-form-urlencoded");
         httpCode = http.POST(variables);
         result = http.getString(); 
+
+        if( DEBUG_CODE ){
+          Serial.println( result );
+          delay( DEBUH_DELAY_TIME );
+        }
+
+        Serial.println( result );
         http.end();
         Serial.println("Inside Fetch Json from Location : "+location+"\nResponce Code : " + String( httpCode ) );  
         if( httpCode != 200 ){

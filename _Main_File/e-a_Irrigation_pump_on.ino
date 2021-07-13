@@ -28,6 +28,7 @@ void irrigate_soil(){
         TIME_TO_IRRIGATE = 10000;
         PUMP_ON_OFF_STATUS = 1;
     }
+    delay(1000);
 }
 
 

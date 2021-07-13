@@ -8,12 +8,21 @@ void manual_irrigation_on(){
         deserializeJson(doc, result);
 
         result = doc["irrigation_manual_overide_request"].as<String>();
+
+        if( DEBUG_CODE ){
+            Serial.println("Inside user request excution and irrigation_manual_overide_request is set to : " + String( result.toInt() ));
+            delay(DEBUH_DELAY_TIME);
+        }
+
+
         if( !result.toInt() ){
             digitalWrite( RELAY_2, HIGH );
             Serial.println("Manual Overide Irrigation - Pump OFF");
             break;
         }
 
+         Serial.println( digitalRead(WL_LOW) ); 
+         
         if( digitalRead(WL_LOW) == 0 ){
             Serial.println("\tTank Water Level Low");
             digitalWrite( RELAY_2, HIGH );
@@ -23,6 +32,7 @@ void manual_irrigation_on(){
             digitalWrite(WL_LOW, LOW);
             pinMode(WL_LOW, INPUT);
         }
+       
         
         digitalWrite( RELAY_2, LOW );
         Serial.println("Manual Overide Irrigation - Pump ON");

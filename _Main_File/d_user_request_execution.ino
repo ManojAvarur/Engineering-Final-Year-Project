@@ -8,12 +8,25 @@ int user_request_execution(){
         deserializeJson(doc, result);
     
         result = doc["irrigation_manual_overide_request"].as<String>();
+
+        if( DEBUG_CODE ){
+            Serial.print("Inside user request excution and irrigation_manual_overide_request is set to : " );
+            Serial.println( result.toInt() );
+            delay(DEBUH_DELAY_TIME);
+        }
+
         if( result.toInt() ){
             manual_irrigation_on();
-            continue;
+            // continue;
         }
 
         result = doc["sensor_data_request"].as<String>();
+
+        if( DEBUG_CODE ){
+            Serial.print("Inside user request excution and sensor_data_request is set to : ");
+            Serial.print(result.toInt() );
+        }
+
         if( result.toInt() ) {
             send_sensor_data();
         }

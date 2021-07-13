@@ -3,8 +3,8 @@ void loop(){
         user_request_execution();
     } else {
         automatic_execution();
-        
     }
+    delay(1000);
 }
 
 // Upload automatic_execution() data to database

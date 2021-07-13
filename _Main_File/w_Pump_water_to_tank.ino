@@ -29,4 +29,5 @@ void pump_water_to_tank( bool change_time ){
     if( change_time ){
         TIME_TO_IRRIGATE = TIME_TO_IRRIGATE + ( pump_end_time - pump_start_time );
     }
+    Serial.println(TIME_TO_IRRIGATE);
 }

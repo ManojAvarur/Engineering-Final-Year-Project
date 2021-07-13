@@ -3,8 +3,8 @@
 #include <ArduinoJson.h>
 StaticJsonDocument<48> doc;
 
-const char* ssid = "Manoj";
-const char* password = "Hazelnut+-";
+const char* ssid = "";
+const char* password = "";
 WiFiClient client;
 
 void setup() {
@@ -22,13 +22,14 @@ void loop() {
 
 void insert_into_database(){
   HTTPClient http;
-  http.begin(client, "http://192.168.2.4/iot/test.php?");
+  http.begin(client, "http://192.168.43.225/website/farmato/handel_requests/iotrequest/db_nodemcu_freeze_check.php?");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-  int httpCode = http.POST("none");
+  int httpCode = http.POST("uid=ccac34d923330a2968f12e163d5a2cd6");
 
   Serial.println(httpCode);  
   String res = http.getString() ;
 
+  Serial.print( res );
   deserializeJson(doc, res);
   String result;
 //  {"result": 0}
