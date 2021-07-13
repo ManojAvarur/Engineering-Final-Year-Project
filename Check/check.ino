@@ -9,13 +9,7 @@ const char* password = "Hazelnut+-";
 WiFiClient client;
 
 void setup_wifi();
-int nodemcu_freeze_check();
-
-
-
-
-
-
+void nodemcu_freeze_check();
 
 void setup(){
   Serial.begin(9600);
@@ -24,15 +18,16 @@ void setup(){
 
 void loop(){
   nodemcu_freeze_check();
-  delay(3000);
+//  delay(3000);
 }
 
-int nodemcu_freeze_check(){
+void nodemcu_freeze_check(){
   int httpCode;
+  
 String result;
   do{
     HTTPClient http;
-    http.begin(client, "http://iotproject.coolpage.biz/handel_requests/iotrequest/db_nodemcu_freeze_check.php?");
+    http.begin(client, "http://192.168.2.5/website/handel_requests/iotrequest/db_nodemcu_freeze_check.php?");
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
     httpCode = http.POST("uid=ccac34d923330a2968f12e163d5a2cd6");
@@ -48,9 +43,9 @@ String result;
     
   }while( httpCode != 200 );
 
-//  deserializeJson(Json_result_responce, result);
-//  result = Json_result_responce["result"].as<String>();
-//  Serial.println( Json_result_responce["result"].as<String>() );
+  deserializeJson(Json_result_responce, result);
+
+  Serial.println( Json_result_responce["result"].as<String>().toInt() );
 //  Json_result_responce.clear();
 //  Json_result_responce.delete();
 

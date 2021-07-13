@@ -20,6 +20,6 @@ int nodemcu_freeze_check(){
   }while( httpCode != 200 );
 
   deserializeJson(Json_result_responce, result);
-  result = Json_result_responce["result"].as<String>();
-  return result.toInt();
+  // result = Json_result_responce["result"].as<String>();
+  return Json_result_responce["result"].as<String>().toInt();
 }

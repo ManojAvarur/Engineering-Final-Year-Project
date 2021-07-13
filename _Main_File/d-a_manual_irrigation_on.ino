@@ -1,5 +1,5 @@
 void manual_irrigation_on(){
-    StaticJsonDocument<96> doc;
+
     String result;
     
     while( true ){
@@ -16,9 +16,9 @@ void manual_irrigation_on(){
 
         // {"irrigation_manual_overide_request":"0","sensor_data_request":"0"}
         result = fetch_json( "db_unc_fetch_requests.php", "uid="+USER_ID );
-        deserializeJson(doc, result);
+        deserializeJson(User_request_check, result);
 
-        result = doc["irrigation_manual_overide_request"].as<String>();
+        result = User_request_check["irrigation_manual_overide_request"].as<String>();
 
         if( DEBUG_CODE ){
             Serial.println("Inside user request excution and irrigation_manual_overide_request is set to : " + String( result.toInt() ));

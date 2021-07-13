@@ -57,6 +57,8 @@ int MAP_HIGH = 40;
 // ----------------- Json Libraies Settings ------------
 #include <ArduinoJson.h>
 StaticJsonDocument<48> Json_result_responce;
+StaticJsonDocument<96> User_request_check;
+StaticJsonDocument<192> DB_update;
 
 // ---------------- Function Declarations -------------
 int nodemcu_freeze_check();

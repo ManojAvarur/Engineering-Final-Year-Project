@@ -8,17 +8,17 @@ void update_database(){
         "pump_on_off_status":1
     }*/
 
-    StaticJsonDocument<192> doc;
+    
     String JsonData;
 
-    doc["uid"] = USER_ID;
-    doc["soil_moisture"] = PERCENTAGE;
-    doc["temperature"] = TEMPERATURE;
-    doc["humidity"] = HUMIDITY;
-    doc["irrigation_on_off_status"] = IRRIGARTION_ON_OFF_STATUS;
-    doc["pump_on_off_status"] = PUMP_ON_OFF_STATUS;
+    DB_update["uid"] = USER_ID;
+    DB_update["soil_moisture"] = PERCENTAGE;
+    DB_update["temperature"] = TEMPERATURE;
+    DB_update["humidity"] = HUMIDITY;
+    DB_update["irrigation_on_off_status"] = IRRIGARTION_ON_OFF_STATUS;
+    DB_update["pump_on_off_status"] = PUMP_ON_OFF_STATUS;
 
-    serializeJson(doc, JsonData);
+    serializeJson(DB_update, JsonData);
     send_json_sensor_data( "db_update_sensor_data.php", JsonData );
 
     PUMP_ON_OFF_STATUS = 0;

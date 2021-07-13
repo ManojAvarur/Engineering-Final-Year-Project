@@ -1,13 +1,13 @@
 int user_request_execution(){
-    StaticJsonDocument<96> doc;
+    
     String result;
-    do{
+    while( true ){
         // {"irrigation_manual_overide_request":"0","sensor_data_request":"0"}
         result = fetch_json("db_unc_fetch_requests.php", "uid="+USER_ID );
 
-        deserializeJson(doc, result);
+        deserializeJson(User_request_check, result);
     
-        result = doc["irrigation_manual_overide_request"].as<String>();
+        result = User_request_check["irrigation_manual_overide_request"].as<String>();
 
         if( DEBUG_CODE ){
             Serial.print("Inside user request excution and irrigation_manual_overide_request is set to : " );
@@ -20,7 +20,7 @@ int user_request_execution(){
             // continue;
         }
 
-        result = doc["sensor_data_request"].as<String>();
+        result = User_request_check["sensor_data_request"].as<String>();
 
         if( DEBUG_CODE ){
             Serial.print("Inside user request excution and sensor_data_request is set to : ");
@@ -33,8 +33,16 @@ int user_request_execution(){
         
         delay(1000);
 
+        if(  nodemcu_freeze_check() ){
+
+            if( DEBUG_CODE ){
+                Serial.print("Inside user request excution and nodemcu_freeze_check is set to : true so the loop will break now ");
+            }
+
+            break;
+        }
         
-    }while( nodemcu_freeze_check() );
+    }
 }
 
 

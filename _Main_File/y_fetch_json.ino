@@ -10,7 +10,7 @@ String fetch_json( String location, String variables ){
 
         if( DEBUG_CODE ){
           Serial.println( result );
-          delay( DEBUH_DELAY_TIME );
+          delay( DEBUG_DELAY_TIME );
         }
 
         Serial.println( result );
