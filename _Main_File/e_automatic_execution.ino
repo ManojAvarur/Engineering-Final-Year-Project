@@ -23,9 +23,8 @@ void automatic_execution(){
             PUMP_ON_OFF_STATUS = 0;
             irrigate_soil();
           }
+          update_database();
         }
-        update_database();
-
         unfreeze_user();
     }
 }

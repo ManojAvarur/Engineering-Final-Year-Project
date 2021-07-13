@@ -20,11 +20,11 @@ void loop() {
 void insert_into_database(){
   HTTPClient http;
 
-  http.begin(client, "http://iotproject.ezyro.com/iotest/connection.php?val1=2323.434&val2=356.8889");
+  http.begin(client, "https://farmato.byethost10.com/index.php");
   
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
   
-  int httpCode = http.POST("");
+  int httpCode = http.POST("none");
                            
   String payload = http.getString();                  
   Serial.println(httpCode);   
