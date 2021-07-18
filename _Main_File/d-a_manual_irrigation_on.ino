@@ -22,7 +22,8 @@ void manual_irrigation_on(){
 
         if( DEBUG_CODE ){
             Serial.println("Inside user request excution and irrigation_manual_overide_request is set to : " + String( result.toInt() ));
-            delay(DEBUH_DELAY_TIME);
+            delay(DEBUG_DELAY_TIME);
+            Serial.println("Water Low Level Check : " + String( digitalRead(WL_LOW) ) ); 
         }
 
 
@@ -32,7 +33,7 @@ void manual_irrigation_on(){
             break;
         }
 
-        Serial.println( digitalRead(WL_LOW) ); 
+        
 
         
         digitalWrite( RELAY_2, LOW );
@@ -57,7 +58,7 @@ void manual_irrigation_on(){
 
 //         if( DEBUG_CODE ){
 //             Serial.println("Inside user request excution and irrigation_manual_overide_request is set to : " + String( result.toInt() ));
-//             delay(DEBUH_DELAY_TIME);
+//             delay(DEBUG_DELAY_TIME);
 //         }
 
 

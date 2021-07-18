@@ -27,4 +27,9 @@ void setup() {
     pinMode(WL_HIGH, INPUT);
 
     START_MILLIS = millis();
+
+//    TIME_STAMP = get_time_stamp();
+
+//    unsigned long currentMillis = millis();
+//    unsigned long current_hour = currentMillis / (1000UL * 60UL * 60UL);
 }

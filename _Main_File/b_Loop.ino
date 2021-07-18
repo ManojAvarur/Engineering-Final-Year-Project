@@ -1,5 +1,5 @@
 void loop(){
-    if( nodemcu_freeze_check() ){
+    if( nodemcu_freeze_check("Main Loop").equals("1") ){
         user_request_execution();
     } else {
         automatic_execution();

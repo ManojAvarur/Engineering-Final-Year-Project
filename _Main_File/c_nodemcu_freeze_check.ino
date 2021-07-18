@@ -1,4 +1,4 @@
-int nodemcu_freeze_check(){
+String nodemcu_freeze_check(String inside){
   int httpCode;
   String result;
   do{
@@ -11,7 +11,7 @@ int nodemcu_freeze_check(){
 
     http.end();
 
-    Serial.println("Inside NodeMCU Freez Check \nResponce Code : " + String( httpCode ) );
+    Serial.println("\n\nInside NodeMCU Freez Check\n\tCalled From :" + inside +"RESPONSE :  "+result+"\nResponce Code : " + String( httpCode ) );
     
     if( httpCode != 200 ){
         delay(1000);
@@ -20,6 +20,6 @@ int nodemcu_freeze_check(){
   }while( httpCode != 200 );
 
   deserializeJson(Json_result_responce, result);
-  // result = Json_result_responce["result"].as<String>();
-  return Json_result_responce["result"].as<String>().toInt();
+  return Json_result_responce["result"].as<String>();
+//  return Json_result_responce["result"].as<String>().toInt();
 }

@@ -10,9 +10,10 @@ int user_request_execution(){
         result = User_request_check["irrigation_manual_overide_request"].as<String>();
 
         if( DEBUG_CODE ){
+            Serial.println();
             Serial.print("Inside user request excution and irrigation_manual_overide_request is set to : " );
             Serial.println( result.toInt() );
-            delay(DEBUH_DELAY_TIME);
+            delay(DEBUG_DELAY_TIME);
         }
 
         if( result.toInt() ){
@@ -23,6 +24,7 @@ int user_request_execution(){
         result = User_request_check["sensor_data_request"].as<String>();
 
         if( DEBUG_CODE ){
+            Serial.println();
             Serial.print("Inside user request excution and sensor_data_request is set to : ");
             Serial.print(result.toInt() );
         }
@@ -33,13 +35,14 @@ int user_request_execution(){
         
         delay(1000);
 
-        if(  nodemcu_freeze_check() ){
+        if(  nodemcu_freeze_check("Inside User Request Execution").equals("0") ){
 
             if( DEBUG_CODE ){
-                Serial.print("Inside user request excution and nodemcu_freeze_check is set to : true so the loop will break now ");
+              Serial.print("Inside user request excution and nodemcu_freeze_check is set to : true so the loop will break now ");
+              delay( DEBUG_DELAY_TIME ); 
             }
 
-            break;
+            return 0;
         }
         
     }
@@ -79,4 +82,3 @@ int user_request_execution(){
 //         }
 //     }while( user_request_execution_function_repeat );
 // }
-

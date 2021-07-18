@@ -9,7 +9,7 @@ String fetch_json( String location, String variables ){
         result = http.getString(); 
 
         if( DEBUG_CODE ){
-          Serial.println( result );
+          Serial.println( "DEBUG Code Result : " + result );
           delay( DEBUG_DELAY_TIME );
         }
 
