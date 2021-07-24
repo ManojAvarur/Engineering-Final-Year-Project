@@ -10,14 +10,30 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
-  Widget build(BuildContext context)  {
+  int counter = 1;
+  List<GetURLAndTitle> url_and_title = [];
+
+  getContent() async {
+    var responce = await http
+        .get(Uri.parse("https://jsonplaceholder.typicode.com/photos/$counter"));
+
+    url_and_title.add(GetURLAndTitle(
+        url: jsonDecode(responce.body)["url"],
+        title: jsonDecode(responce.body)["title"]));
+    print("-------------------------------");
+    for (int i = 0; i < url_and_title.length; i++) {
+      print(url_and_title[i]);
+    }
+    print("-------------------------------");
+    counter++;
+  }
+
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        
         floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            var responce =  await http.get( Uri.parse("https://jsonplaceholder.typicode.com/photos/1"));
-            print( jsonDecode( responce.body ) );
-          },
+          onPressed: getContent,
           child: Icon(Icons.add),
         ),
         appBar: AppBar(
@@ -25,6 +41,16 @@ class AppState extends State<App> {
         ),
       ),
     );
+  }
+}
+
+class GetURLAndTitle {
+  String url;
+  String title;
+  GetURLAndTitle({required this.url, required this.title});
+
+  String toString() {
+    return "$url = $title";
   }
 }
 
