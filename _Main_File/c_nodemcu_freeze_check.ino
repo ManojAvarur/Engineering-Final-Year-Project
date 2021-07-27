@@ -11,7 +11,7 @@ String nodemcu_freeze_check(String inside){
 
     http.end();
 
-    Serial.println("\n\nInside NodeMCU Freez Check\n\tCalled From :" + inside +"RESPONSE :  "+result+"\nResponce Code : " + String( httpCode ) );
+    Serial.println("\n\nInside NodeMCU Freez Check\n\tCalled From :" + inside +"\n\tRESPONSE :  "+result+"\n\tResponce Code : " + String( httpCode ) );
     
     if( httpCode != 200 ){
         delay(1000);
