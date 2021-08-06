@@ -2,8 +2,8 @@
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "Manoj";
-const char* password = "Hazelnut+-";
+const char* ssid = "";
+const char* password = "";
 WiFiClient client;
  
 void setup_wifi();

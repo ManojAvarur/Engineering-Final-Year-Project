@@ -4,8 +4,8 @@
 #include <ArduinoJson.h>
 StaticJsonDocument<48> Json_result_responce;
 
-const char* ssid = "Manoj";
-const char* password = "Hazelnut+-";
+const char* ssid = "";
+const char* password = "";
 WiFiClient client;
 
 void setup_wifi();
